@@ -45,6 +45,6 @@
 	],
       	"migrate": [
             "php src/migrate.php"
-      	],
-    },
+      	]
+    }
 }
