@@ -46,7 +46,7 @@
 	    "phpmd . xml cleancode,codesize,controversial,design,naming --exclude 'vendor,example'"
 	],
       	"migrate": [
-            "php vendor/bin/src/migrate.php"
+            "php src/migrate.php"
       	],
     },
 }
