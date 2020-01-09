@@ -1,5 +1,5 @@
 {
-    "name": "devsuperstars/migrations",
+    "name": "devsuperstars/lipid-migrations",
     "description": "Сreating migrations for a project",
     "type": "library",
     "license": "MIT",
