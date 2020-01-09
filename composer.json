@@ -1,0 +1,52 @@
+{
+    "name": "GuloGit/migrations",
+    "description": "Сreating migrations for a project",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dolotova Olga",
+            "email": "ol.dolotova@yandex.ru"
+        }
+    ],
+    "homepage": "https://github.com/GuloGit/migrations",
+    "keywords": ["php", "library", "web", "applications"],
+    "support": {
+        "issues": "https://github.com/GuloGit/migrations/issues"
+    },    
+    "require": {
+        "php": ">= 7.1",
+        "ext-json": "*"
+        "agorlov/lipid": "master@dev",
+        "ext-pdo": "*",
+    },
+
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    },
+    "scripts": {
+        "phpcs": [
+            "phpcs --standard=PSR2 --colors src/ tests/"
+        ],
+        "phpcs-fix": [
+            "phpcbf --standard=PSR2 src/ tests/"
+        ],
+        "test": [
+            "vendor/bin/phpunit --coverage-text --bootstrap ./tests/bootstrap.php --testdox --color -v tests/"
+        ],
+        "phpstan": [
+            "phpstan analyse --error-format=table --no-progress -lmax -c phpstan.neon src/ tests/"
+        ],
+	    "phpmd": [
+	        "phpmd . text cleancode,codesize,controversial,design,naming --exclude 'vendor,example'"
+        ],
+	    "phpmd-xml": [
+	        "phpmd . xml cleancode,codesize,controversial,design,naming --exclude 'vendor,example'"
+	    ],
+      "migrate": [
+          "php src/migrate.php"
+      ],
+    },
+}
