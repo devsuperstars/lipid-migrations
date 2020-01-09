@@ -10,9 +10,10 @@
  */
 require('./vendor/autoload.php');
 
-use Kladovochka\MyPDO;
+use Lipid\Config\Cfg;
+use Lipid\BasePDO;
 
-$db = new MyPDO();
+$db = new BasePDO(new Cfg());
 $db->query('SET NAMES utf8');
 
 //получаем список файлов в папке migrations
