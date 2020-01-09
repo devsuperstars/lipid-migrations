@@ -1,5 +1,5 @@
 {
-    "name": "GuloGit/migrations",
+    "name": "gulo-git/migrations",
     "description": "Сreating migrations for a project",
     "type": "library",
     "license": "MIT",
