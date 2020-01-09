@@ -18,7 +18,6 @@
         "php": ">= 7.1",
         "ext-json": "*",
         "agorlov/lipid": "master@dev",
-        "ext-pdo": "*",
     },
 
     "autoload": {
