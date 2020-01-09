@@ -16,8 +16,7 @@
     },    
     "require": {
         "php": ">= 7.1",
-        "ext-json": "*",
-        "agorlov/lipid": "master@dev",
+  	"ext-json": "*"
     },
 
     "autoload": {
