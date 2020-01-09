@@ -5,7 +5,7 @@ Quickstart
 
 $ mkdir migrations
 
-$ composer require GuloGit/migrations
+$ composer require gulo-git/migrations
 
  Create your migrations in the directory  migrations/ as sql files in order, starting with the number 1.
 
