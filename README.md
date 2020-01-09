@@ -3,6 +3,8 @@
 
 Quickstart
 
+commands:
+
 $ mkdir migrations
 
 $ composer require devsuperstars/migrations
