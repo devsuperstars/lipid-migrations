@@ -46,5 +46,6 @@
       	"migrate": [
             "php src/migrate.php"
       	]
-    }
+    },
+    "bin": [ "bin/migrate" ]
 }
