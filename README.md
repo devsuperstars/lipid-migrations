@@ -16,4 +16,6 @@ Example: migrations/1.sql, migrations/2.sql ... migrations/n.sql
 
 run migrations:
 
+```sh
 $ composer migrate
+```
