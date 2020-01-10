@@ -33,7 +33,7 @@ $db->query('SET NAMES utf8');
 // string(53) "/home/ubuntu/kladovochka/kladovochka/migrations/1.sql"
 //  [1]=>
 //  string(53) "/home/ubuntu/kladovochka/kladovochka/migrations/2.sql"
-$files = glob(__DIR__ . '/migrations/*.sql');
+$files = glob($baseDir . '/migrations/*.sql');
 
 //необходимо проверить правильно ли пронумерованны файлы с миграциями
 $migrationsList = [];
