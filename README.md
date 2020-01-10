@@ -1,6 +1,9 @@
+
 # migrations
 
 Сreating migrations for a project
+
+## migrations can only work with the lipid framework
 
 ## Quickstart
 
