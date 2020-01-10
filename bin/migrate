@@ -16,11 +16,11 @@ use Lipid\BasePDO;
 
 $baseDir = getcwd();
 
-if (! file_exists($baseDir.'composer.json')) {
+if (! file_exists($baseDir.'/composer.json')) {
     die("May be wrong directory, you shuld start this in the root of your app. Here shuld be composer.json file\n");
 }
 
-if (! file_exists($baseDir.'migrations')) {
+if (! file_exists($baseDir.'/migrations')) {
     die("create a migration folder:\n mkdir migrations \n");
 }
 
