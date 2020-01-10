@@ -13,6 +13,16 @@ require('./vendor/autoload.php');
 use Lipid\Config\Cfg;
 use Lipid\BasePDO;
 
+$baseDir = getcwd();
+
+if (! file_exists($baseDir.'/composer.json')) {
+    die("May be wrong directory, you shuld start this in the root of your app. Here shuld be composer.json file\n");
+}
+
+if (! file_exists($baseDir.'/migrations')) {
+    die("create a migration folder:\n mkdir migrations \n");
+}
+
 $db = new BasePDO(new Cfg());
 $db->query('SET NAMES utf8');
 
@@ -22,12 +32,12 @@ $db->query('SET NAMES utf8');
 // string(53) "/home/ubuntu/kladovochka/kladovochka/migrations/1.sql"
 //  [1]=>
 //  string(53) "/home/ubuntu/kladovochka/kladovochka/migrations/2.sql"
-$fails = glob(__DIR__ . '/migrations/*.sql');
+$files = glob($baseDir . '/migrations/*.sql');
 
 //необходимо проверить правильно ли пронумерованны файлы с миграциями
 $migrationsList = [];
 
-foreach ($fails as $m_ => $value) {
+foreach ($files as $m_ => $value) {
     $string = substr(strrchr($value, '/'), 1);
     // в стринг попадает файл - "1.sql", забераем у него порядковый номер
     $numberMigration = explode('.', $string);
@@ -45,7 +55,7 @@ foreach ($migrationsList as $key => $value) {
 
 
 //переходим к выполнению миграций, для начала считаем их
-$countMigrations = count(glob(__DIR__ . '/migrations/*.sql'));
+$countMigrations = count(glob($baseDir . '/migrations/*.sql'));
 
 //проверяем есть ли уже таблица миграций в БД, если нет то создаем
 $query = $db->query("SHOW TABLES FROM kladovochka LIKE 'migrations' ");
@@ -80,7 +90,7 @@ if ((int)$lastMigrationInDB['number'] == $countMigrations) {
 for ($i = (int)$lastMigrationInDB['number'] + 1; $i <= $countMigrations; $i++) {
 
     //получаем запрос из файла с миграцией и выполняем его
-    $migrationQuery = file_get_contents(__DIR__ . '/migrations/' . $i . '.sql');
+    $migrationQuery = file_get_contents($baseDir . '/migrations/' . $i . '.sql');
 
     //если файл с миграцие существует выполняем запрос
     if ($migrationQuery) {
