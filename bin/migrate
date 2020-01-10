@@ -33,12 +33,12 @@ $db->query('SET NAMES utf8');
 // string(53) "/home/ubuntu/kladovochka/kladovochka/migrations/1.sql"
 //  [1]=>
 //  string(53) "/home/ubuntu/kladovochka/kladovochka/migrations/2.sql"
-$fails = glob(__DIR__ . '/migrations/*.sql');
+$files = glob(__DIR__ . '/migrations/*.sql');
 
 //необходимо проверить правильно ли пронумерованны файлы с миграциями
 $migrationsList = [];
 
-foreach ($fails as $m_ => $value) {
+foreach ($files as $m_ => $value) {
     $string = substr(strrchr($value, '/'), 1);
     // в стринг попадает файл - "1.sql", забераем у него порядковый номер
     $numberMigration = explode('.', $string);
