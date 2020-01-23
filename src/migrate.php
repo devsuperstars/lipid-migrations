@@ -15,11 +15,11 @@ use Lipid\BasePDO;
 
 $baseDir = getcwd();
 
-if (! file_exists($baseDir.'/composer.json')) {
+if (!file_exists($baseDir . '/composer.json')) {
     die("May be wrong directory, you shuld start this in the root of your app. Here shuld be composer.json file\n");
 }
 
-if (! file_exists($baseDir.'/migrations')) {
+if (!file_exists($baseDir . '/migrations')) {
     die("create a migration folder:\n mkdir migrations \n");
 }
 
@@ -57,8 +57,9 @@ foreach ($migrationsList as $key => $value) {
 //переходим к выполнению миграций, для начала считаем их
 $countMigrations = count(glob($baseDir . '/migrations/*.sql'));
 
+$dbName = (new Cfg())->param('dbname');
 //проверяем есть ли уже таблица миграций в БД, если нет то создаем
-$query = $db->query("SHOW TABLES FROM kladovochka LIKE 'migrations' ");
+$query = $db->query("SHOW TABLES FROM $dbName LIKE 'migrations' ");
 
 if (!$query->fetch()) {
     $db->query("
