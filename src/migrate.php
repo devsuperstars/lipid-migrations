@@ -57,7 +57,7 @@ foreach ($migrationsList as $key => $value) {
 //переходим к выполнению миграций, для начала считаем их
 $countMigrations = count(glob($baseDir . '/migrations/*.sql'));
 
-$dbName = (new Cgf())->param('dbname');
+$dbName = (new Cfg())->param('dbname');
 //проверяем есть ли уже таблица миграций в БД, если нет то создаем
 $query = $db->query("SHOW TABLES FROM $dbName LIKE 'migrations' ");
 
