@@ -24,7 +24,7 @@ if (!file_exists($baseDir . '/migrations')) {
 }
 
 $db = new BasePDO(new Cfg());
-$db->query('SET NAMES utf8');
+$db->query('SET NAMES utf8', false);
 
 //получаем список файлов в папке migrations
 //array(2) {
